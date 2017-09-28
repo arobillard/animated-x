@@ -54,6 +54,8 @@ html {
 
 .nav-check:checked ~ .nav-label .middle {
   opacity: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%) rotate(45deg);
 }
 
 .nav-check:checked ~ .nav-label .bottom {
@@ -61,34 +63,6 @@ html {
   left: 50%;
   transform: translateY(50%) translateX(-50%) rotate(-45deg);
 }
-
-/*.nav-label i {
-  margin: .5rem;
-  width: 2rem;
-  height: 2rem;
-}
-
-.nav-label i img {
-  -webkit-transition: transform 1s, opacity 1s;
-  -moz-transition: transform 1s, opacity 1s;
-  -ms-transition: transform 1s, opacity 1s;
-  -o-transition: transform 1s, opacity 1s;
-  transition: transform 1s, opacity, 1s;
-}
-
-.nav-label i img:nth-child(2) {
-  opacity: 0
-}
-
-.nav-check:checked ~ .nav-label i img:first-child {
-  opacity: 0;
-  transform: rotate(360deg);
-}
-
-.nav-check:checked ~ .nav-label i img:nth-child(2) {
-  opacity: 1;
-  transform: rotate(360deg);
-}*/
 
 a:focus,
 [tabindex="0"]:focus,
@@ -106,4 +80,128 @@ select:focus {
 input[type="checkbox"] + label::before {
   position: absolute;
   left: -1000rem;
+}
+
+.scale {
+  transition: transform 250ms ease-in-out;
+}
+
+.scale:hover {
+  transform: scale(1.125);
+}
+
+main {
+  height: calc(100vh - 5.42375rem);
+}
+
+.spin-border {
+  width: 10rem;
+  height: 10rem;
+  transition: background-color .25s;
+  transition-delay: .25s;
+}
+
+p {
+  transition: color .25s, transform .25s;
+  color: #933;
+}
+
+.sb-1 p,
+.sb-2 p,
+.sb-3 p,
+.sb-4 p {
+  transform: scale(0);
+}
+
+.og.spin-border:hover p,
+.og.spin-border:hover ~ .sb-1 p,
+.og.spin-border:hover ~ .sb-2 p,
+.og.spin-border:hover ~ .sb-3 p,
+.og.spin-border:hover ~ .sb-4 p {
+  font-weight: bold;
+  transform: translate(-50%, -50%) scale(4);
+}
+
+.s-border {
+  position: absolute;
+  transition: all .25s;
+  background-color: #933;
+}
+
+.s-top,
+.s-bottom {
+  height: 1rem;
+  width: 0;
+}
+
+.s-right,
+.s-left {
+  width: 1rem;
+  height: 0;
+}
+
+.og.spin-border:hover .s-top,
+.og.spin-border:hover .s-bottom,
+.og.spin-border:hover ~ .sb-1 .s-top,
+.og.spin-border:hover ~ .sb-1 .s-bottom,
+.og.spin-border:hover ~ .sb-2 .s-top,
+.og.spin-border:hover ~ .sb-2 .s-bottom,
+.og.spin-border:hover ~ .sb-3 .s-top,
+.og.spin-border:hover ~ .sb-3 .s-bottom,
+.og.spin-border:hover ~ .sb-4 .s-top,
+.og.spin-border:hover ~ .sb-4 .s-bottom {
+  width: 10rem;
+}
+
+.og.spin-border:hover .s-right,
+.og.spin-border:hover .s-left,
+.og.spin-border:hover ~ .sb-1 .s-right,
+.og.spin-border:hover ~ .sb-1 .s-left,
+.og.spin-border:hover ~ .sb-2 .s-right,
+.og.spin-border:hover ~ .sb-2 .s-left,
+.og.spin-border:hover ~ .sb-3 .s-right,
+.og.spin-border:hover ~ .sb-3 .s-left,
+.og.spin-border:hover ~ .sb-4 .s-right,
+.og.spin-border:hover ~ .sb-4 .s-left {
+  height: 10rem;
+}
+
+.s-top {
+  left: 0;
+  top: 0;
+}
+
+.s-right {
+  right: 0;
+  top: 0;
+}
+
+.s-bottom {
+  right: 0;
+  bottom: 0;
+}
+
+.s-left {
+  left: 0;
+  bottom: 0;
+}
+
+.sb-1 {
+  left: 0;
+  top: 2rem;
+}
+
+.sb-2 {
+  right: 0;
+  top: 2rem;
+}
+
+.sb-3 {
+  left: 0;
+  bottom: 2rem;
+}
+
+.sb-4 {
+  right: 0;
+  bottom: 2rem;
 }
